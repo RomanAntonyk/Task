@@ -26,10 +26,12 @@ namespace WebAPI.Middlewares
                 };
 
                 string json = JsonSerializer.Serialize(problem);
+                
+                context.Response.ContentType = "application/json";
 
                 await context.Response.WriteAsync(json);
 
-                context.Response.ContentType = "application/json";
+                
             }
         }
     }
